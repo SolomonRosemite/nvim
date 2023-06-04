@@ -1,9 +1,8 @@
 
 # Prerequisite (may be incomplete. [see resource here](https://www.youtube.com/watch?v=w7i4amO_zaE))
-## Install nvim
+## Install nvim 0.9.0 or higher
 
 you should get it from [here](https://github.com/neovim/neovim/wiki/Installing-Neovim#linux)
-![image](https://github.com/SolomonRosemite/nvim/assets/60587271/19900b95-a810-4abf-bd93-3f0e0b4df3d2)
 
 for some reason using ``sudo apt install neovim`` doesn't install the latest version which causes problems with a few plugins.
 
