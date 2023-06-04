@@ -27,3 +27,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
+
+vim.opt.backup = false
+vim.opt.writebackup = false
+
