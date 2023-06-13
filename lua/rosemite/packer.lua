@@ -37,9 +37,11 @@ return require('packer').startup(function(use)
 	}
 
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
+	use({ 'catppuccin/nvim', as = 'catppuccin' })
 
 	-- If you setup for the first time, you might have to commend the line below.
-	vim.cmd('colorscheme rose-pine')
+	-- vim.cmd('colorscheme rose-pine')
+	vim.cmd('colorscheme catppuccin-mocha')
 
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
 	use("nvim-treesitter/playground")
