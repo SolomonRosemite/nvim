@@ -11,8 +11,8 @@ return require('packer').startup(function(use)
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
-    end
-}
+        end
+    }
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -50,6 +50,7 @@ return require('packer').startup(function(use)
 	-- vim.cmd('colorscheme rose-pine')
 	vim.cmd('colorscheme catppuccin-mocha')
 
+    use { "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" }
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
 	use("nvim-treesitter/playground")
 	use('mbbill/undotree')
