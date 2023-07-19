@@ -9,7 +9,7 @@ local hpu = require('harpoon.ui')
 
 vim.keymap.set('n', '<leader>a', hpm.add_file, {})
 vim.keymap.set('n', '<leader>q', hpu.toggle_quick_menu, {})
-vim.keymap.set('n', '<leader>e', hpu.toggle_quick_menu, {})
+vim.keymap.set('n', '<leader>h', hpu.toggle_quick_menu, {})
 
 for i = 1, 9 do
     vim.keymap.set('n', '<leader>' .. i, function()
