@@ -8,3 +8,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", ",", ";")
 vim.keymap.set("n", ";", ",")
+
+vim.api.nvim_set_keymap('n', '"0p', '<leader>p', { noremap = true })
+vim.api.nvim_set_keymap('n', '"0P', '<leader>P', { noremap = true })
+
