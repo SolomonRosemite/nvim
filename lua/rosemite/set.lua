@@ -31,9 +31,3 @@ vim.g.mapleader = " "
 vim.opt.backup = false
 vim.opt.writebackup = false
 
-vim.opt.timeout = true
-vim.opt.timeoutlen = 0
-
-vim.opt.ttimeout = true
-vim.opt.ttimeoutlen = 0
-
