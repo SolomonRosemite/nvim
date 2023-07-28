@@ -25,4 +25,4 @@ function ColorMyPencilsRosePine(color)
 end
 
 ColorMyPencilsCatppuccin()
-ColorMyPencilsRosePine()
+-- ColorMyPencilsRosePine()
