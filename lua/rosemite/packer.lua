@@ -64,6 +64,14 @@ return require('packer').startup(function(use)
         }
     }
 
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+          require("todo-comments").setup{}
+        end
+    }
+
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
 	use({ 'catppuccin/nvim', as = 'catppuccin' })
 
