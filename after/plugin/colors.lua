@@ -24,5 +24,5 @@ function ColorMyPencilsRosePine(color)
 
 end
 
-ColorMyPencilsCatppuccin()
+-- ColorMyPencilsCatppuccin()
 -- ColorMyPencilsRosePine()
