@@ -1,10 +1,11 @@
 
-# Prerequisite (may be incomplete. [see resource here](https://www.youtube.com/watch?v=w7i4amO_zaE))
+# nvim config
 
 ## Known issues
 
 - For some reason, when node can't be found in PATH, insert mode in nvim is
   extremely slow due to copilot.
+- Prerequisite may be incomplete. [see resource here](https://www.youtube.com/watch?v=w7i4amO_zaE)
 
 ## Install nvim 0.9.0 or higher
 
