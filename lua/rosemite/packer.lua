@@ -76,8 +76,8 @@ return require('packer').startup(function(use)
 	use({ 'catppuccin/nvim', as = 'catppuccin' })
 
 	-- If you setup for the first time, you might have to commend the line below.
-	-- vim.cmd('colorscheme rose-pine')
-	vim.cmd('colorscheme catppuccin-mocha')
+	vim.cmd('colorscheme rose-pine')
+	-- vim.cmd('colorscheme catppuccin-mocha')
 
     use { "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" }
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
