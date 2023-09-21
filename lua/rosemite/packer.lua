@@ -81,6 +81,7 @@ return require('packer').startup(function(use)
 
     use { "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" }
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
+	use { "APZelos/blamer.nvim" }
 	use("nvim-treesitter/playground")
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
