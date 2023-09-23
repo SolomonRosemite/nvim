@@ -13,3 +13,5 @@ vim.keymap.set("n", ";", ",")
 vim.keymap.set('n', '<leader>p', '"0p')
 vim.keymap.set('n', '<leader>P', '"0P')
 
+vim.keymap.set('n', 'K', '<C-w>k')
+vim.keymap.set('n', 'J', '<C-w>j')
