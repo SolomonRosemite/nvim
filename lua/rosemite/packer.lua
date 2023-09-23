@@ -9,14 +9,10 @@ return require('packer').startup(function(use)
 
     use {
         'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end
     }
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
@@ -45,10 +41,6 @@ return require('packer').startup(function(use)
 
     use {
         'cameron-wags/rainbow_csv.nvim',
-        config = function()
-            require 'rainbow_csv'.setup()
-        end,
-        -- optional lazy-loading below
         module = {
             'rainbow_csv',
             'rainbow_csv.fns'
@@ -67,24 +59,15 @@ return require('packer').startup(function(use)
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
-        config = function()
-          require("todo-comments").setup{}
-        end
     }
 
 	use {
         'lewis6991/gitsigns.nvim',
-        config = function()
-          require("gitsigns").setup()
-        end
     }
 
     use {
       'nvim-lualine/lualine.nvim',
       requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-      config = function()
-        require('lualine').setup()
-      end
     }
 
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
