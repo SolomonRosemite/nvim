@@ -1,4 +1,8 @@
 vim.g.mapleader = " "
+
+-- Fix for this: https://neovim.discourse.group/t/how-do-i-use-space-as-the-leader-in-visual-mode/916/11
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', {noremap = true, silent = true})
@@ -20,6 +24,7 @@ vim.keymap.set('v', '<C-c>', '"+y')
 -- vim.keymap.set('n', '<C-c>', '"+y')
 
 -- Copy to clipboard from WSL
+-- Source: https://vi.stackexchange.com/questions/42305/neovim-following-the-instructions-in-h-clipboard-wsl-not-work-it-shows-no
 vim.g.clipboard = {
     name = 'WslClipboard',
     copy = {
