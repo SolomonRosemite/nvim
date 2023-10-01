@@ -7,9 +7,8 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
-    use {
-        'numToStr/Comment.nvim',
-    }
+    use {'numToStr/Comment.nvim'}
+    use {'eckon/treesitter-current-functions'}
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
