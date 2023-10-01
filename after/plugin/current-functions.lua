@@ -1,1 +1,1 @@
-vim.keymap.set('n', '<leader>cf', ":GetCurrentFunctions<CR>")
+vim.keymap.set('n', '<leader>f', ":GetCurrentFunctions<CR>")
