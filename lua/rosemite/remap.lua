@@ -11,48 +11,6 @@ vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', {noremap = true, silent = true}
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- lua require('Comment.api').call('toggle.linewise', 'g@')
--- lua require('Comment.api').toggle.linewise.current()
--- lua require('Comment.api').toggle.linewise()
--- lua print("hello") <CR> | lua print("world")
-
--- function YankAndComment()
---     local start_line = vim.fn.line("'<")
---     local end_line = vim.fn.line("'>")
---
---     -- require('Comment.api').toggle.linewise.count(end_line - start_line + 1)
---     -- vim.cmd([[normal P]])
--- end
--- vim.api.nvim_set_keymap('x', '<Leader>a', ":lua YankAndComment()<CR>", { noremap = true, silent = true })
-
-function YankCommentAndPasteAbove()
-    -- Comment the lines
-    local start_line = vim.fn.line("'<")
-    local end_line = vim.fn.line("'>")
-    require('Comment.api').toggle.linewise.count(end_line - start_line + 1)
-
-    -- Paste the yanked content above the visual selection
-    vim.cmd([[normal! O]])
-    vim.cmd([[normal! P]])
-end
-
-vim.api.nvim_set_keymap('x', '<Leader>a', [[:<C-u>execute "'<,'>y | lua YankCommentAndPasteAbove()"<CR>]], { noremap = true })
--- vim.api.nvim_set_keymap('x', '<Leader>a', [[:<C-u>execute "'<,'>y":lua YankCommentAndPasteAbove()<CR>]], { noremap = true })
--- vim.api.nvim_set_keymap('x', '<Leader>a', [[:normal! y:lua YankCommentAndPasteAbove()<CR>]], { noremap = true })
-
-
-
-
--- vim.api.nvim_set_keymap('x', '<Leader>a', [[:lua print(vim.fn.line("'<"), vim.fn.line("'>")) <CR>]], { noremap = true })
--- vim.api.nvim_set_keymap('x', '<Leader>a', [[:lua print(vim.fn.line("'<") - vim.fn.line("'>")) <CR>]], { noremap = true })
--- vim.api.nvim_set_keymap('x', '<Leader>a', [[:lua print(vim.fn.line("'<") - vim.fn.line("'>") + 1)<CR>]], { noremap = true })
-
--- vim.api.nvim_set_keymap('x', '<Leader>a', [[:lua print(math.abs(vim.fn.line("'<") - vim.fn.line("'>")) + 1)<CR>]], { noremap = true })
-
--- vim.api.nvim_set_keymap('x', '<leader>a', ':visual gc<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('x', '<leader>a', ':normal gcc<CR>', { noremap = true })
--- vim.api.nvim_set_keymap('v', 'a', [[:<C-u>execute "'<,'>y | normal! k"<CR>gv=gv]], { noremap = true })
-
 vim.keymap.set("n", ",", ";")
 vim.keymap.set("n", ";", ",")
 
@@ -67,11 +25,21 @@ vim.keymap.set('n', 'L', '<C-w>l')
 vim.keymap.set('n', 'K', '<C-w>k')
 vim.keymap.set('n', 'J', '<C-w>j')
 
--- Copy to clipboard from WSL
-vim.keymap.set('v', '<C-c>', '"+y')
+function YankCommentAndPasteAbove()
+    -- Comment the lines
+    local start_line = vim.fn.line("'<")
+    local end_line = vim.fn.line("'>")
+    require('Comment.api').toggle.linewise.count(end_line - start_line + 1)
+
+    -- Paste the yanked content above the visual selection
+    vim.cmd([[normal! O]])
+    vim.cmd([[normal! P]])
+end
+vim.api.nvim_set_keymap('x', '<Leader>a', [[:<C-u>execute "'<,'>y | lua YankCommentAndPasteAbove()"<CR>]], { noremap = true })
 
 -- Copy to clipboard from WSL
 -- Source: https://vi.stackexchange.com/questions/42305/neovim-following-the-instructions-in-h-clipboard-wsl-not-work-it-shows-no
+vim.keymap.set('v', '<C-c>', '"+y')
 vim.g.clipboard = {
     name = 'WslClipboard',
     copy = {
