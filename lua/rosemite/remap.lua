@@ -18,12 +18,14 @@ vim.keymap.set('x', 'p', 'P')
 vim.keymap.set('n', '<leader>p', '"0p')
 vim.keymap.set('n', '<leader>P', '"0P')
 
+vim.keymap.set('n', 'H', '<C-w>h')
+vim.keymap.set('n', 'L', '<C-w>l')
+
 vim.keymap.set('n', 'K', '<C-w>k')
 vim.keymap.set('n', 'J', '<C-w>j')
 
 -- Copy to clipboard from WSL
 vim.keymap.set('v', '<C-c>', '"+y')
--- vim.keymap.set('n', '<C-c>', '"+y')
 
 -- Copy to clipboard from WSL
 -- Source: https://vi.stackexchange.com/questions/42305/neovim-following-the-instructions-in-h-clipboard-wsl-not-work-it-shows-no
