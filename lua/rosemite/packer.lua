@@ -71,10 +71,14 @@ return require('packer').startup(function(use)
 
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
 	use({ 'catppuccin/nvim', as = 'catppuccin' })
+    use({ 'projekt0n/github-nvim-theme' })
 
 	-- If you setup for the first time, you might have to commend the line below.
 	vim.cmd('colorscheme rose-pine')
 	-- vim.cmd('colorscheme catppuccin-mocha')
+	-- vim.cmd('colorscheme github_dark_default')
+	-- vim.cmd('colorscheme github_dark_tritanopia')
+	-- vim.cmd('colorscheme github_dark_dimmed')
 
     use { "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" }
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
