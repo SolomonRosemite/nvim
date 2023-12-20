@@ -3,6 +3,11 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 lsp.ensure_installed({
+  "clangd",
+  "bashls",
+  "jedi_language_server",
+  "tailwindcss",
+  "svelte",
   'tsserver',
   'rust_analyzer',
   'omnisharp',
