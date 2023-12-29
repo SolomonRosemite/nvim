@@ -24,8 +24,8 @@ for some reason using ``sudo apt install neovim`` doesn't install the latest ver
 
 1. open the nvim config
 
-*you should get a few errors when opening nvim. so resolve these open the packer.lua and comment the line below*
-![image](https://github.com/SolomonRosemite/nvim/assets/60587271/b3ab4b89-999f-4cdf-afa7-7db0ddd21d07)
+*you should get a few errors when opening nvim. so resolve these open the after/plugin/colors.lua and comment the line below*
+![image](https://github.com/SolomonRosemite/nvim/assets/60587271/505f03f0-d177-44e5-811d-088959a65298)
 
 2. now close nvim and open again.
 3. open the packer.lua and use cmd :so then :PackerSync to install pkgs. <br/> If the packersync command fails, just try running it again.
