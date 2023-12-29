@@ -25,6 +25,8 @@ vim.keymap.set('n', 'L', '<C-w>l')
 vim.keymap.set('n', 'K', '<C-w>k')
 vim.keymap.set('n', 'J', '<C-w>j')
 
+vim.keymap.set('n', '<leader>cc', ':noh<CR>')
+
 function YankCommentAndPasteAbove()
     -- Comment the lines
     local start_line = vim.fn.line("'<")
