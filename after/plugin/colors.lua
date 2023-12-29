@@ -1,28 +1,33 @@
 require('rose-pine').setup({
-    disable_background = true
+    disable_background = true,
 })
 
 require('catppuccin').setup({
-    disable_background = true
+    transparent_background = true,
 })
 
-function ColorMyPencilsCatppuccin(color) 
-	color = color or "catppuccin"
+function Transparent(color)
 	vim.cmd.colorscheme(color)
-
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-
 end
 
-function ColorMyPencilsRosePine(color) 
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
+require('onedark').setup {
+    transparent = true,
+    style = 'darker',
+    lualine = {
+        transparent = true,
+    },
+}
 
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- If you setup for the first time, you might have to commend the theme in use.
+-- vim.cmd('colorscheme rose-pine')
+-- Transparent("rose-pine")
 
-end
+vim.cmd('colorscheme catppuccin-mocha')
 
--- ColorMyPencilsCatppuccin()
--- ColorMyPencilsRosePine()
+-- vim.cmd('colorscheme github_dark_default')
+-- vim.cmd('colorscheme github_dark_tritanopia')
+-- vim.cmd('colorscheme github_dark_dimmed')
+
+-- require('onedark').load()
