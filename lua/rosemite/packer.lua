@@ -11,6 +11,14 @@ return require('packer').startup(function(use)
     use {'eckon/treesitter-current-functions'}
 
 	use {
+		'ggandor/leap.nvim',
+        event = 'BufRead',
+        config = function()
+            require('leap').add_default_mappings()
+        end
+	}
+
+	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.5',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
