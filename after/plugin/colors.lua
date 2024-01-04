@@ -24,10 +24,10 @@ require('onedark').setup {
 -- vim.cmd('colorscheme rose-pine')
 -- Transparent("rose-pine")
 
-vim.cmd('colorscheme catppuccin-mocha')
+-- vim.cmd('colorscheme catppuccin-mocha')
 
 -- vim.cmd('colorscheme github_dark_default')
 -- vim.cmd('colorscheme github_dark_tritanopia')
 -- vim.cmd('colorscheme github_dark_dimmed')
 
--- require('onedark').load()
+require('onedark').load()
