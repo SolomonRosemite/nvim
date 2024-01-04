@@ -82,6 +82,8 @@ return require('packer').startup(function(use)
     use({ 'projekt0n/github-nvim-theme' })
     use 'navarasu/onedark.nvim'
 
+    use "sindrets/diffview.nvim"
+    use "nvim-tree/nvim-web-devicons"
     use { "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" }
 	use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
 	use { "APZelos/blamer.nvim" }
