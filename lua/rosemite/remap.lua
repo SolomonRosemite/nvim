@@ -25,6 +25,9 @@ vim.keymap.set('n', 'L', '<C-w>l')
 vim.keymap.set('n', 'K', '<C-w>k')
 vim.keymap.set('n', 'J', '<C-w>j')
 
+vim.keymap.set('n', '<C-Right>', '<C-w>><C-w>>')
+vim.keymap.set('n', '<C-Left>', '<C-w><<C-w><')
+
 vim.keymap.set('n', '<C-q>', ':q<CR>')
 
 vim.api.nvim_set_keymap('n', '<leader>cc', ':noh<CR>', {noremap = true, silent = true})
