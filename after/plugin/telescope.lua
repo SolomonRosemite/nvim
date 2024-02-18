@@ -19,7 +19,7 @@ require('telescope').setup{
                 '--smart-case',
                 '--hidden',
                 '--glob',
-                '!{**/.git/*,**/.svelte-kit/*,**/target/*,**/node_modules/*,**/.dist/*}',
+                '!{**/.git/*,**/.svelte-kit/*,**/target/*,**/node_modules/*,**/.dist/*,**/dist/*}',
                 '--sort',
                 'path',  -- Add this line to order by directory
             },
@@ -37,7 +37,7 @@ require('telescope').setup{
                 '--smart-case',
                 '--hidden',
                 '--glob',
-                '!{**/.git/*,**/.svelte-kit/*,**/target/*,**/node_modules/*,**/.dist/*}',
+                '!{**/.git/*,**/.svelte-kit/*,**/target/*,**/node_modules/*,**/.dist/*,**/dist/*}',
                 '--sort',
                 'path',  -- Add this line to order by directory
             },
