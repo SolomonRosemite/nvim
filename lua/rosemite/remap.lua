@@ -35,6 +35,7 @@ vim.keymap.set('n', '<leader>r', ':%s/f/r/g')
 vim.api.nvim_set_keymap('n', '<leader>cc', ':noh<CR>', {noremap = true, silent = true})
 
 vim.cmd("command! -nargs=0 W execute 'w'")
+vim.cmd("command! Q execute 'q'")
 
 function YankCommentAndPasteAbove()
     -- Comment the lines
