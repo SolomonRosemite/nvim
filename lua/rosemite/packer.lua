@@ -76,6 +76,11 @@ return require('packer').startup(function(use)
       requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
 
+    use {
+      'folke/trouble.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    }
+
 	use({ 'rose-pine/neovim', as = 'rose-pine' })
 	use({ 'catppuccin/nvim', as = 'catppuccin' })
     use({ 'projekt0n/github-nvim-theme' })
