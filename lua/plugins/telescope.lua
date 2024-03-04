@@ -1,4 +1,4 @@
-return { -- Fuzzy Finder (files, lsp, etc)
+return {
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
   branch = '0.1.x',
@@ -25,37 +25,74 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- { 'nvim-tree/nvim-web-devicons' }
   },
   config = function()
-    -- Telescope is a fuzzy finder that comes with a lot of different things that
-    -- it can fuzzy find! It's more than just a "file finder", it can search
-    -- many different aspects of Neovim, your workspace, LSP, and more!
-    --
-    -- The easiest way to use telescope, is to start by doing something like:
-    --  :Telescope help_tags
-    --
-    -- After running this command, a window will open up and you're able to
-    -- type in the prompt window. You'll see a list of help_tags options and
-    -- a corresponding preview of the help.
-    --
-    -- Two important keymaps to use while in telescope are:
-    --  - Insert mode: <c-/>
-    --  - Normal mode: ?
-    --
-    -- This opens a window that shows you all of the keymaps for the current
-    -- telescope picker. This is really useful to discover what Telescope can
-    -- do as well as how to actually do it!
+    local actions = require 'telescope.actions'
+    local action_state = require 'telescope.actions.state'
 
-    -- [[ Configure Telescope ]]
-    -- See `:help telescope` and `:help telescope.setup()`
+    local open_man_in_current_window = function(prompt_bufnr)
+      local selection = action_state.get_selected_entry()
+      actions.close(prompt_bufnr)
+      vim.cmd('tab Man ' .. selection.value)
+    end
+
+    local open_help_in_current_window = function(prompt_bufnr)
+      local selection = action_state.get_selected_entry()
+      actions.close(prompt_bufnr)
+      vim.cmd('tab help ' .. selection.value)
+    end
+
     require('telescope').setup {
-      -- You can put your default mappings / updates / etc. in here
-      --  All the info you're looking for is in `:help telescope.setup()`
-      --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
-      -- pickers = {}
+      pickers = {
+        live_grep = {
+          hidden = true,
+          no_ignore = true,
+          find_command = {
+            'rg',
+            '--files',
+            '--color=never',
+            '--no-heading',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+            '--glob',
+            '!{**/.git/*,**/.svelte-kit/*,**/target/*,**/node_modules/*,**/.dist/*,**/dist/*}',
+            '--sort',
+            'path', -- Add this line to order by directory
+          },
+        },
+        find_files = {
+          hidden = true,
+          no_ignore = true,
+          find_command = {
+            'rg',
+            '--files',
+            '--color=never',
+            '--no-heading',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+            '--glob',
+            '!{**/.git/*,**/.svelte-kit/*,**/target/*,**/node_modules/*,**/.dist/*,**/dist/*}',
+            '--sort',
+            'path', -- Add this line to order by directory
+          },
+        },
+        help_tags = {
+          mappings = {
+            i = {
+              ['<CR>'] = open_help_in_current_window,
+            },
+          },
+        },
+        man_pages = {
+          mappings = {
+            i = {
+              ['<CR>'] = open_man_in_current_window,
+            },
+          },
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
@@ -69,16 +106,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<C-p>', builtin.find_files)
-    vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<C-k>', builtin.live_grep)
+    vim.keymap.set('n', '<leader>hh', builtin.help_tags, { desc = 'Search Help' })
+    vim.keymap.set('n', '<leader>man', builtin.man_pages, { desc = 'Search Man Pages' })
+    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+    vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-    vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-    vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Find existing buffers' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
