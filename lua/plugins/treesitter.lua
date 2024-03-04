@@ -9,7 +9,7 @@ return {
       indent = { enable = true },
 
       highlight = {
-        enable = false,
+        enable = true,
         disable = { 'csv' },
       },
     }
