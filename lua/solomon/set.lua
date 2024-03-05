@@ -30,6 +30,7 @@ vim.g.mapleader = ' '
 
 vim.opt.backup = false
 vim.opt.writebackup = false
+vim.opt.cursorline = true
 
 -- Prevents vim from automatically commenting next line
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]

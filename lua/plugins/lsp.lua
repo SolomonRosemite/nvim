@@ -116,7 +116,9 @@ return { -- LSP Configuration & Plugins
     local servers = {
       bashls = {},
       jsonls = {},
-      clangd = {},
+      clangd = {
+        filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' }, -- Exclude proto
+      },
       gopls = {},
       tsserver = {},
       pyright = {},
