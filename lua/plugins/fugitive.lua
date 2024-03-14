@@ -2,6 +2,8 @@ return {
   'tpope/vim-fugitive',
   config = function()
     vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+    vim.keymap.set('n', '<leader>gap', ':Git add -p<CR>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<leader>gaa', ':Git add -A<CR>', { noremap = true, silent = true })
     vim.keymap.set('n', '<leader>gd', ':Git diff<CR>', { noremap = true, silent = true })
     vim.keymap.set('n', '<leader>gc', ':Git commit<CR>', { noremap = true, silent = true })
     vim.keymap.set('n', '<leader>gb', ':Git blame<CR>', { noremap = true, silent = true })
