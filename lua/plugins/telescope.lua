@@ -42,6 +42,9 @@ return {
 
     require('telescope').setup {
       pickers = {
+        colorscheme = {
+          enable_preview = true,
+        },
         live_grep = {
           hidden = true,
           no_ignore = true,
@@ -115,6 +118,7 @@ return {
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Find existing buffers' })
+    vim.keymap.set('n', '<leader>cs', builtin.colorscheme, { desc = '[C]hange [S]cheme' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
