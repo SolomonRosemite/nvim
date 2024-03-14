@@ -117,16 +117,18 @@ return { -- LSP Configuration & Plugins
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
       bashls = {},
-      jsonls = {},
       clangd = {
         filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' }, -- Exclude proto
       },
+      cssls = {},
       gopls = {},
-      tsserver = {},
+      html = {},
+      jsonls = {},
       pyright = {},
+      rust_analyzer = {},
       svelte = {},
       tailwindcss = {},
-      rust_analyzer = {},
+      tsserver = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes { ...},
