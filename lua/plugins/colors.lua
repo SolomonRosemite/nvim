@@ -24,15 +24,15 @@ return {
       -- vim.cmd 'colorscheme rose-pine'
       -- Transparent 'rose-pine'
 
-      -- require('onedark').setup {
-      --   -- transparent = true,
-      --   style = 'darker',
-      --   lualine = {
-      --     transparent = true,
-      --   },
-      -- }
-      --
-      -- require('onedark').load()
+      require('onedark').setup {
+        transparent = true,
+        style = 'darker',
+        lualine = {
+          transparent = true,
+        },
+      }
+
+      require('onedark').load()
     end,
   },
   {
