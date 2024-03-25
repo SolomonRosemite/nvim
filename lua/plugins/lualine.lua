@@ -1,3 +1,8 @@
+local function text()
+  return [[🍃]]
+  -- return [[🌸 ]]
+end
+
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -12,8 +17,14 @@ return {
       lualine_a = { 'mode' },
       lualine_b = { 'branch' },
       lualine_c = { 'filename' },
-      lualine_x = {},
-      lualine_y = { 'encoding' },
+
+      -- lualine_x = {},
+      lualine_x = { 'fileformat', text, 'encoding' },
+
+      -- lualine_y = { 'encoding' },
+      lualine_y = {},
+
+      -- lualine_z = {},
       lualine_z = { 'filetype' },
     },
   },
