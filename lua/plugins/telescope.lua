@@ -42,6 +42,9 @@ return {
 
     require('telescope').setup {
       pickers = {
+        diagnostics = {
+          wrap_results = true,
+        },
         colorscheme = {
           enable_preview = true,
         },
