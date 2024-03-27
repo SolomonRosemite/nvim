@@ -41,30 +41,31 @@ return {
     end
 
     require('telescope').setup {
+      defaults = {
+        hidden = true,
+        no_ignore = true,
+        vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--hidden',
+          '-u',
+          '--glob',
+          '!{**/.git/*,**/.svelte-kit/*,**/target/*,**/node_modules/*,**/.dist/*,**/dist/*}',
+          '--sort',
+          'path',
+        },
+      },
       pickers = {
         diagnostics = {
           wrap_results = true,
         },
         colorscheme = {
           enable_preview = true,
-        },
-        live_grep = {
-          hidden = true,
-          no_ignore = true,
-          find_command = {
-            'rg',
-            '--files',
-            '--color=never',
-            '--no-heading',
-            '--line-number',
-            '--column',
-            '--smart-case',
-            '--hidden',
-            '--glob',
-            '!{**/.git/*,**/.svelte-kit/*,**/target/*,**/node_modules/*,**/.dist/*,**/dist/*}',
-            '--sort',
-            'path', -- Add this line to order by directory
-          },
         },
         find_files = {
           hidden = true,
@@ -74,14 +75,16 @@ return {
             '--files',
             '--color=never',
             '--no-heading',
+            '--with-filename',
             '--line-number',
             '--column',
             '--smart-case',
             '--hidden',
+            '-u',
             '--glob',
             '!{**/.git/*,**/.svelte-kit/*,**/target/*,**/node_modules/*,**/.dist/*,**/dist/*}',
             '--sort',
-            'path', -- Add this line to order by directory
+            'path',
           },
         },
         help_tags = {
