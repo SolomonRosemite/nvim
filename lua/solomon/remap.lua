@@ -33,7 +33,7 @@ vim.keymap.set('n', '<C-Left>', '<C-w><<C-w><')
 
 vim.keymap.set('n', '<C-q>', ':q<CR>')
 
-vim.keymap.set('n', '<leader>rn', ':%s/f/r/g')
+vim.keymap.set('n', '<leader>fr', ':%s/f/r/g')
 
 vim.api.nvim_set_keymap('n', '<leader>cc', ':noh<CR>', { noremap = true, silent = true })
 
