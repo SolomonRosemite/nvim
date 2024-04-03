@@ -121,6 +121,12 @@ return {
     vim.keymap.set('n', '<leader>man', builtin.man_pages, { desc = 'Search Man Pages' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+    -- vim.keymap.set(
+    --   'n',
+    --   '<leader>sd',
+    --   "<cmd>lua require('telescope.builtin').diagnostics({wrap_results=true,initial_mode='normal'})<CR>",
+    --   { desc = '[S]earch [D]iagnostics' }
+    -- ) -- builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Find existing buffers' })
