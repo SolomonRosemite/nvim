@@ -59,8 +59,8 @@ vim.keymap.set('v', '<C-c>', '"+y')
 vim.g.clipboard = {
   name = 'WslClipboard',
   copy = {
-    ['+'] = 'clip.exe',
-    ['*'] = 'clip.exe',
+    ['+'] = 'utf8clip.exe',
+    ['*'] = 'utf8clip.exe',
   },
   paste = {
     ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
