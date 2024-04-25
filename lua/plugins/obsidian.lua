@@ -1,7 +1,7 @@
 return {
   'epwalsh/obsidian.nvim',
   version = '*',
-  lazy = true,
+  lazy = false,
   ft = 'markdown',
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -13,6 +13,7 @@ return {
         path = '~/.obsidian/vaults/personal',
       },
     },
+    disable_frontmatter = true,
   },
   config = function(_, opts)
     vim.opt.conceallevel = 2
