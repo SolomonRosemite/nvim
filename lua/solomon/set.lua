@@ -35,3 +35,8 @@ vim.opt.timeout = false
 
 -- Prevents vim from automatically commenting next line
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]
+
+-- Set filetype to json with comment
+vim.cmd [[
+  autocmd BufNewFile,BufRead *.json set filetype=jsonc
+]]
