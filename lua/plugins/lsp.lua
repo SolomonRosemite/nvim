@@ -120,9 +120,11 @@ return { -- LSP Configuration & Plugins
       gopls = {},
       html = {},
       jsonls = {},
+      marksman = {},
       pyright = {},
       rust_analyzer = {},
       svelte = {},
+      shellcheck = {},
       tailwindcss = {},
       tsserver = {},
       lua_ls = {
