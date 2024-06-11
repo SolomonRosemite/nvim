@@ -31,8 +31,10 @@ return {
           transparent = true,
         },
       }
-
       require('onedark').load()
+
+      -- require('poimandres').setup {}
+      -- vim.cmd 'colorscheme poimandres'
     end,
   },
   {
@@ -51,6 +53,10 @@ return {
   {
     'catppuccin/nvim',
     name = 'catppuccin',
+    lazy = false,
+  },
+  {
+    'olivercederborg/poimandres.nvim',
     lazy = false,
   },
 }
