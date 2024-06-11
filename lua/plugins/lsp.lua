@@ -72,6 +72,7 @@ return { -- LSP Configuration & Plugins
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
         map('gh', vim.lsp.buf.hover, 'Hover Documentation')
+        map('gi', vim.lsp.buf.implementation, '[G]oto [i]mplementation')
 
         -- WARN: This is not Goto Definition, this is Goto Declaration.
         --  For example, in C this would take you to the header
