@@ -12,7 +12,6 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = true
 vim.opt.backup = true
-vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.opt.undofile = true
 
 vim.opt.hlsearch = true
@@ -32,6 +31,10 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.cursorline = true
 vim.opt.timeout = false
+
+if vim.g.vscode == nil then
+  vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+end
 
 -- Prevents vim from automatically commenting next line
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]

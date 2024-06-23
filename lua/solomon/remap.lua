@@ -28,7 +28,9 @@ vim.keymap.set('n', 'J', '<C-w>j')
 vim.keymap.set('n', '<C-Right>', '<C-w>><C-w>>')
 vim.keymap.set('n', '<C-Left>', '<C-w><<C-w><')
 
-vim.keymap.set('n', '<C-q>', ':q<CR>')
+if vim.g.vscode == nil then
+  vim.keymap.set('n', '<C-q>', ':q<CR>')
+end
 
 vim.keymap.set('n', '<leader>fr', ':%s/f/r/g')
 

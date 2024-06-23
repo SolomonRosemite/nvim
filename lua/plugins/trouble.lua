@@ -1,5 +1,6 @@
 return {
   'folke/trouble.nvim',
+  cond = vim.g.vscode == nil,
   keys = {
     {
       '<leader>xx',

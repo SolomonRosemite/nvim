@@ -1,6 +1,7 @@
 return {
   'ThePrimeagen/harpoon',
   dependencies = { 'nvim-lua/plenary.nvim' },
+  cond = vim.g.vscode == nil,
   config = function()
     local hpm = require 'harpoon.mark'
     local hpu = require 'harpoon.ui'
