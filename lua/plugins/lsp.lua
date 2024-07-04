@@ -129,6 +129,7 @@ return { -- LSP Configuration & Plugins
       shellcheck = {},
       tailwindcss = {},
       tsserver = {},
+      golangci_lint_ls = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes { ...},
