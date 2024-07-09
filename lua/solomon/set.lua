@@ -36,6 +36,9 @@ if vim.g.vscode == nil then
   vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 end
 
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
 -- Prevents vim from automatically commenting next line
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]
 
