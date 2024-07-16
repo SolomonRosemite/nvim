@@ -100,7 +100,20 @@ return { -- LSP Configuration & Plugins
       shellcheck = {},
       tailwindcss = {},
       tsserver = {},
-      golangci_lint_ls = {},
+      golangci_lint_ls = {
+        filetypes = { 'go', 'gomod' },
+        init_options = {
+          command = {
+            'golangci-lint',
+            'run',
+            '--out-format',
+            'json',
+            '--issues-exit-code=1',
+            '--config=./.golangci.yml',
+            '--config=./.vscode/.golangci.yml',
+          },
+        },
+      },
       lua_ls = {
         -- cmd = {...},
         -- filetypes { ...},
