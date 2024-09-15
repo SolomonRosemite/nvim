@@ -40,7 +40,7 @@ return {
           name = name or Path:new(vim.api.nvim_buf_get_name(0)):make_relative(config.get_root_dir())
 
           -- If name already contains position, return as is.
-          if name:match ': %(%d+,%d+%)$' then
+          if name:match ': %(%d+,%d+%)' then
             return { value = name, context = { custom = true } }
           end
 
