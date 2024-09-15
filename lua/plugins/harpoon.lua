@@ -37,18 +37,19 @@ return {
       },
       my_custom_list = {
         create_list_item = function(config, name)
-          name = name or Path:new(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())):make_relative(config.get_root_dir())
-          local bufnr = vim.fn.bufnr(name, false)
-          local pos = { 1, 0 }
-          if bufnr ~= -1 then
-            pos = vim.api.nvim_win_get_cursor(vim.api.nvim_get_current_win())
+          name = name or Path:new(vim.api.nvim_buf_get_name(0)):make_relative(config.get_root_dir())
+
+          -- If name already contains position, return as is.
+          if name:match ': %(%d+,%d+%)$' then
+            return { value = name, context = { custom = true } }
           end
+
+          local bufnr = vim.fn.bufnr(name, false)
+          local pos = bufnr ~= -1 and vim.api.nvim_win_get_cursor(0) or { 1, 0 }
 
           return {
             value = string.format('%s: (%d,%d)', name, pos[1], pos[2]),
-            context = {
-              custom = true,
-            },
+            context = { custom = true },
           }
         end,
         select = function(list_item, list, options)
