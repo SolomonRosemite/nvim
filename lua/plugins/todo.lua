@@ -3,5 +3,5 @@ return {
   event = 'VimEnter',
   cond = vim.g.vscode == nil,
   dependencies = { 'nvim-lua/plenary.nvim' },
-  opts = { signs = false },
+  opts = { signs = false, pattern = [[\b(KEYWORDS).*:]], highlight = { pattern = [[.*<(KEYWORDS).*\s*:]] } },
 }

@@ -9,7 +9,8 @@ return { -- Autoformat
     },
     formatters_by_ft = {
       lua = { 'stylua' },
-      javascript = { { 'prettierd', 'prettier' } },
+      -- javascript = { 'prettierd' },
+      -- typescript = { 'prettierd' },
     },
   },
 }

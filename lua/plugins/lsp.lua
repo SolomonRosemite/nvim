@@ -44,6 +44,7 @@ return { -- LSP Configuration & Plugins
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
         map('gh', vim.lsp.buf.hover, 'Hover Documentation')
+        map('K', vim.diagnostic.open_float, 'Show Diagnostic')
         map('gi', vim.lsp.buf.implementation, '[G]oto [i]mplementation')
 
         -- WARN: This is not Goto Definition, this is Goto Declaration.
@@ -96,7 +97,16 @@ return { -- LSP Configuration & Plugins
       marksman = {},
       pyright = {},
       rust_analyzer = {},
-      svelte = {},
+      svelte = {
+        on_attach = function(client, _)
+          vim.api.nvim_create_autocmd('BufWritePost', {
+            pattern = { '*.js', '*.ts' },
+            callback = function(ctx)
+              client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.match })
+            end,
+          })
+        end,
+      },
       shellcheck = {},
       tailwindcss = {},
       tsserver = {},
@@ -109,8 +119,8 @@ return { -- LSP Configuration & Plugins
             '--out-format',
             'json',
             '--issues-exit-code=1',
-            '--config=./.golangci.yml',
-            '--config=./.vscode/.golangci.yml',
+            '--config=.golangci.yml',
+            '--config=.vscode/.golangci.yml',
           },
         },
       },

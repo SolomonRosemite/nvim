@@ -9,6 +9,7 @@ end
 
 -- vim.cmd.colorscheme 'tokyonight-night'
 -- vim.cmd.hi 'Comment gui=none'
+-- Transparent 'tokyonight-night'
 
 require('catppuccin').setup {
   transparent_background = true,
