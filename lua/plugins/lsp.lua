@@ -109,7 +109,7 @@ return { -- LSP Configuration & Plugins
       },
       shellcheck = {},
       tailwindcss = {},
-      tsserver = {},
+      ts_ls = {},
       golangci_lint_ls = {
         filetypes = { 'go', 'gomod' },
         init_options = {
