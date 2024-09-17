@@ -8,7 +8,7 @@ return {
   },
   config = function()
     require('barbecue').setup {
-      include_buftypes = { 'oil', 'acwrite' },
+      include_buftypes = { 'oil', 'acwrite', '' },
     }
   end,
 }
