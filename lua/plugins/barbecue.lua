@@ -6,5 +6,9 @@ return {
     'SmiteshP/nvim-navic',
     'nvim-tree/nvim-web-devicons',
   },
-  opts = {},
+  config = function()
+    require('barbecue').setup {
+      include_buftypes = { 'oil', 'acwrite' },
+    }
+  end,
 }
