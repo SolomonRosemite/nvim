@@ -4,6 +4,9 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     require('oil').setup {
+      -- mandatory since when enabled and "git add -p" by git fugitive is used, the spit does not close.
+      -- this only happens, if the first thing you do, is adding files.
+      default_file_explorer = false,
       columns = {
         'icon',
       },
