@@ -20,8 +20,6 @@ return {
         ['<C-s>'] = { 'actions.select', opts = { vertical = true }, desc = 'Open the entry in a vertical split' },
         ['<C-h>'] = { 'actions.select', opts = { horizontal = true }, desc = 'Open the entry in a horizontal split' },
         ['<C-t>'] = { 'actions.select', opts = { tab = true }, desc = 'Open the entry in new tab' },
-        ['<C-c>'] = 'actions.close',
-        ['<C-l>'] = 'actions.refresh',
         ['-'] = 'actions.parent',
         ['_'] = 'actions.open_cwd',
         ['`'] = 'actions.cd',
@@ -42,7 +40,8 @@ return {
     -- https://github.com/stevearc/oil.nvim/issues/357#issuecomment-2071054399
     local function on_oil_open()
       local oil = require 'oil'
-      if oil.get_cursor_entry() then
+      local entry = oil.get_cursor_entry()
+      if entry and entry.type ~= 'directory' then
         oil.open_preview { vertical = true, split = 'botright' }
       end
     end
@@ -53,11 +52,11 @@ return {
       on_oil_open()
     end, { desc = 'Open parent directory with Oil' })
 
-    -- vim.api.nvim_create_autocmd('User', {
-    --   pattern = 'OilEnter',
-    --   callback = function()
-    --     on_oil_open()
-    --   end,
-    -- })
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'OilEnter',
+      callback = function()
+        on_oil_open()
+      end,
+    })
   end,
 }
