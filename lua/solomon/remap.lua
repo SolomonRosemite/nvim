@@ -3,13 +3,14 @@ vim.g.mapleader = ' '
 -- Fix for this: https://neovim.discourse.group/t/how-do-i-use-space-as-the-leader-in-visual-mode/916/11
 vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 
+-- (Only needed for nvim v0.11)
 -- Unbind default bindings of grr, gra, grn
 -- https://github.com/neovim/neovim/pull/28650#discussion_r1612295598
 -- alternative to proposed solution: nnoremap <nowait> gr gr
 if vim.g.vscode == nil then
-  vim.keymap.del('n', 'grr')
-  vim.keymap.del('n', 'gra')
-  vim.keymap.del('n', 'grn')
+  -- vim.keymap.del('n', 'grr')
+  -- vim.keymap.del('n', 'gra')
+  -- vim.keymap.del('n', 'grn')
 end
 
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
