@@ -41,7 +41,7 @@ return {
 
           -- If name already contains position, return as is.
           if name:match ': %(%d+,%d+%)' then
-            return { value = name, context = { custom = true } }
+            return { value = name }
           end
 
           local bufnr = vim.fn.bufnr(name, false)
@@ -49,16 +49,15 @@ return {
 
           return {
             value = string.format('%s: (%d,%d)', name, pos[1], pos[2]),
-            context = { custom = true },
           }
         end,
         select = function(list_item, list, options)
-          if list_item.context.custom == nil then
+          local name, row, col = list_item.value:match '(.+): %((%d+),(%d+)%)'
+          if not name then
             Config.get_default_config().default.select(list_item, list, options)
             return
           end
 
-          local name, row, col = list_item.value:match '(.+): %((%d+),(%d+)%)'
           Config.get_default_config().default.select({ value = name, context = { row = tonumber(row), col = tonumber(col) } }, list, options)
 
           local win = vim.api.nvim_get_current_win()
