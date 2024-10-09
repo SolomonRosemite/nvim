@@ -1,12 +1,11 @@
 return {
   'stevearc/oil.nvim',
-  commit = '60fe23050f5b93550262f5c96ab00b5c51b60830', -- Until merged: https://github.com/stevearc/oil.nvim/pull/467
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     require('oil').setup {
       -- mandatory since when enabled and "git add -p" by git fugitive is used, the spit does not close.
       -- this only happens, if the first thing you do, is adding files.
-      default_file_explorer = false,
+      default_file_explorer = true,
       columns = {
         'icon',
       },
@@ -38,28 +37,6 @@ return {
       },
     }
 
-    -- Since these didn't really work, the following workaround is used.
-    -- https://github.com/stevearc/oil.nvim/issues/87#issuecomment-2179322405
-    -- https://github.com/stevearc/oil.nvim/issues/357#issuecomment-2071054399
-    local function on_oil_open()
-      local oil = require 'oil'
-      local entry = oil.get_cursor_entry()
-      if entry and entry.type ~= 'directory' then
-        oil.open_preview { vertical = true, split = 'botright' }
-      end
-    end
-
-    -- Set up the key mapping
-    vim.keymap.set('n', '-', function()
-      vim.cmd 'Oil'
-      on_oil_open()
-    end, { desc = 'Open parent directory with Oil' })
-
-    vim.api.nvim_create_autocmd('User', {
-      pattern = 'OilEnter',
-      callback = function()
-        on_oil_open()
-      end,
-    })
+    vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
   end,
 }
